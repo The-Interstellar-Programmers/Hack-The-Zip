@@ -8,7 +8,7 @@ For Zip files: Change the zipfile's name, and then type the directory.(MUST BE D
 For wordlist: Type the directory you put rockyou.txt in. (Must be same with the python file and your ZIP)<br><br><br>
 
 Update:<br><br>
-I cannot upload rockyou.txt on github, so here's the link to google drive: 
+I cannot upload rockyou.txt on github, so here's the link to google drive: https://drive.google.com/file/d/1HLNv6qKCEt-xl2Hqfht1OhuOm3Y0C18U/view?usp=sharing<br><br><br>
 **IMPORTANT**<br>
 If you have an low-ram PC and is on windows, *DO NOT* Open the rockyou.txt in built in windows Notepad, or else your pc might crash,<br>
 since rockyou.txt contains up to 14 million words and numbers, you can open it in Notepad++ instead. (Tried Myself)<br>
