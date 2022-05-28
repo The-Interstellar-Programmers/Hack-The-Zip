@@ -1,24 +1,28 @@
-import zipfile
 import time
+import zipfile
 from tqdm import tqdm
 
-#folder path must be changed
-wordlist = r"C:\Users\Username\Desktop\ZipHack\rockyou.txt"
-#Put the zipfile's name below. (Must be DIRECT PATH e.g. C:\Users\Username\Desktop\ZipHack\Payment.zip )
-zip_file = r"C:\Users\Username\Desktop\ZipHack\Payment.zip"
 
-zip_file = zipfile.ZipFile(zip_file)
-n_words = len(list(open(wordlist, "rb")))
-print("Total passwords to test:", n_words, "word(s) (extracted from rockyou.txt)")
+wordList = input("Please provide the EXACT path to your desired word list (ex: /home/preso/wordlist.txt): \n")
+zipFile = input("Now please provide the EXACT path to your zip file you want to acess (ex: /home/preso/file_to_acess): \n")
 
-with open(wordlist, "rb") as wordlist:
-    for word in tqdm(wordlist, total=n_words, unit="word"):
+try:
+    zipFile = zipfile.ZipFile(zipFile)
+    nWords = len(list(open(wordList, "rb")))
+except Exception as e:
+    print("Error! Make sure to enter the paths correctly. (Exact error is below)\n \n")
+    time.sleep(2.5)
+    print(e)
+
+print("\nPasswords to test: ", nWords, "password(s)\n")
+
+with open(wordList, "rb") as wordList:
+    for word in tqdm(wordList, total = nWords, unit = "word"):
         try:
-            zip_file.extractall(pwd=word.strip())
+            zipFile.extractall(pwd = word.strip())
         except:
             continue
         else:
             time.sleep(1)
-            print("\n Password found:", word.decode().strip())
+            print("\n Password found: ", word.decode().strip())
             exit(0)
-print("Password not found... try other wordlists.")
